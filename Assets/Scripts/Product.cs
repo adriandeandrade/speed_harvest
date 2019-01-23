@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Product", menuName = "Products/New Product")]
-public class Product : ScriptableObject
+[System.Serializable]
+public class Product
 {
     public string productName;
-    public float productPrice;
     public Sprite productSprite;
+    public float sellPrice;
+    public int caseWeight;
+    public int costPrice;
+    public int minCostPrice;
+    public int maxCostPrice;
 }
