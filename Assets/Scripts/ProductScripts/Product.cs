@@ -5,8 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Product
 {
-    public string productName;
-    public Sprite productSprite;
+    public ProductObject productData;
 
     public float sellPrice;
     public float caseWeight;
@@ -21,7 +20,7 @@ public class Product
 
         float sellPrice = GeneratePrice(costPrice, caseWeight);
         this.sellPrice = sellPrice;
-        Debug.Log(productName + " Cost price:" + costPrice + "\n Sell price: " + sellPrice);
+        //Debug.Log(productData.productName + " Cost price:" + costPrice + "\n Sell price: " + sellPrice);
     }
 
     private float GeneratePrice(float costPrice, float weightInKg)

@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class ProductManager : MonoBehaviour
 {
-    public List<Product> products = new List<Product>();
+    public List<Product> products = new List<Product>(); // List of all products.
 }

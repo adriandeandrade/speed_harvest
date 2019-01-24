@@ -21,8 +21,8 @@ public class TaskManager : MonoBehaviour
     #endregion
 
     public Product currentlySelectedProduct;
-    [SerializeField] private List<Task> tasks = new List<Task>();
-    private bool currentlyProcessing;
+    //[SerializeField] private List<Task> tasks = new List<Task>();
+    [HideInInspector] public bool currentlyProcessing;
 
     private enum ProcessState { CUPPING, WRAPPING, PRICING, IDLE };
     private ProcessState currentProcessState;
@@ -35,12 +35,18 @@ public class TaskManager : MonoBehaviour
 
     public void ProcessProduct()
     {
+        if(currentlyProcessing)
+        {
+            Debug.Log("Cannot process 2 products at the same time!");
+            return;
+        }
+
         if(currentlySelectedProduct != null && !currentlyProcessing)
         {
             currentProcessState = ProcessState.CUPPING;
             currentlyProcessing = true;
             StartCoroutine(Cup());
-            Debug.Log("Currently being processed: " + currentlySelectedProduct.productName);
+            Debug.Log("Currently being processed: " + currentlySelectedProduct.productData.productName);
         } else
         {
             Debug.Log("No product selected.");
@@ -49,7 +55,7 @@ public class TaskManager : MonoBehaviour
 
     IEnumerator Cup()
     {
-        float processingTime = tasks[0].processingTime;
+        float processingTime = currentlySelectedProduct.productData.cuppingTime;
 
         while(processingTime > 0f)
         {
@@ -64,7 +70,7 @@ public class TaskManager : MonoBehaviour
 
     IEnumerator Wrap()
     {
-        float processingTime = tasks[1].processingTime;
+        float processingTime = currentlySelectedProduct.productData.wrappingTime;
 
         while (processingTime > 0f)
         {
@@ -79,7 +85,7 @@ public class TaskManager : MonoBehaviour
 
     IEnumerator Price()
     {
-        float processingTime = tasks[2].processingTime;
+        float processingTime = currentlySelectedProduct.productData.pricingTime;
 
         while (processingTime > 0f)
         {

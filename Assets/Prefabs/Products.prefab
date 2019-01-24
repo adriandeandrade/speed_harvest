@@ -59,22 +59,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   products:
-  - productName: Eggplant
-    productSprite: {fileID: 21300000, guid: 1639ec9f153b08d4c8a5b3bdfbcddaab, type: 3}
+  - productData: {fileID: 11400000, guid: 4cc7fe1c147b3854eb4ae98280eda7ef, type: 2}
     sellPrice: 0
     caseWeight: 10
     costPrice: 0
     minCostPrice: 22
     maxCostPrice: 24
-  - productName: Fennel
-    productSprite: {fileID: 21300000, guid: 9cbc21425543a1e47a90ac3e5c30ad2e, type: 3}
+  - productData: {fileID: 11400000, guid: fe90e2d4ffb1d8e45b084ee4844178bb, type: 2}
     sellPrice: 0
     caseWeight: 25
     costPrice: 0
     minCostPrice: 16
     maxCostPrice: 24
-  - productName: Green Bean
-    productSprite: {fileID: 21300000, guid: 4647e43c717cd1f4b9be8eed9584952e, type: 3}
+  - productData: {fileID: 11400000, guid: ff96d965a33790148b56510e078b2ab6, type: 2}
     sellPrice: 0
     caseWeight: 25
     costPrice: 0
