@@ -7,9 +7,28 @@ public class Product
 {
     public string productName;
     public Sprite productSprite;
+
     public float sellPrice;
-    public int caseWeight;
-    public int costPrice;
-    public int minCostPrice;
-    public int maxCostPrice;
+    public float caseWeight;
+    public float costPrice;
+    public float minCostPrice;
+    public float maxCostPrice;
+
+    public void Initialize()
+    {
+        float costPrice = Mathf.Round(Random.Range(minCostPrice, maxCostPrice));
+        this.costPrice = costPrice;
+
+        float sellPrice = GeneratePrice(costPrice, caseWeight);
+        this.sellPrice = sellPrice;
+        Debug.Log(productName + " Cost price:" + costPrice + "\n Sell price: " + sellPrice);
+    }
+
+    private float GeneratePrice(float costPrice, float weightInKg)
+    {
+        float priceBeforePercentage = costPrice / weightInKg;
+        float finalPricePerKg = priceBeforePercentage / 0.70f;
+
+        return finalPricePerKg;
+    }
 }
