@@ -9,7 +9,7 @@ public class ProductMenuButton : MonoBehaviour
     private Product productInstance;
     private Button button;
 
-    private void OnEnable()
+    private void Awake()
     {
         button = GetComponent<Button>();
         button.onClick.AddListener(delegate { SelectProduct(); }); // Add a listener and execute the SelectProduct function when clicked.
@@ -34,6 +34,13 @@ public class ProductMenuButton : MonoBehaviour
             taskManager.currentlySelectedProduct = null;
             taskManager.currentlySelectedProduct = productInstance;
             //Debug.Log("Selected product: " + taskManager.currentlySelectedProduct.productData.productName);
+            EnableProductProcessMenu(taskManager.currentlySelectedProduct);
         }
+    }
+
+    private void EnableProductProcessMenu(Product product)
+    {
+        GameManager.instance.productProcessMenu.SetActive(true);
+        GameManager.instance.productProcessMenu.GetComponent<ProductSelectionMenu>().UpdateProductProcessMenu(product);
     }
 }
