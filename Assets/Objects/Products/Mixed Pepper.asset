@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d32d21b32f6004b43a4380e6cb920ac1, type: 3}
-  m_Name: Green Bean
+  m_Name: Mixed Pepper
   m_EditorClassIdentifier: 
-  productIcon: {fileID: 21300000, guid: 35f3c096fd0fe7640bc650e91f8415b5, type: 3}
-  cuppingTime: 15
+  productIcon: {fileID: 21300000, guid: d4d7514535ba2f14e8c2238d4502d0ac, type: 3}
+  cuppingTime: 10
   wrappingTime: 12
   pricingTime: 8
-  productName: Green Bean
+  productName: Mixed Pepper

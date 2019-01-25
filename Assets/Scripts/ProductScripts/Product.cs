@@ -6,10 +6,10 @@ using UnityEngine;
 public class Product
 {
     public ProductObject productData;
-
-    public float sellPrice;
+    
     public float caseWeight;
-    public float costPrice;
+    private float costPrice;
+    private float sellPrice;
     public float minCostPrice;
     public float maxCostPrice;
 
