@@ -61,109 +61,197 @@ MonoBehaviour:
   products:
   - productData: {fileID: 11400000, guid: 4cc7fe1c147b3854eb4ae98280eda7ef, type: 2}
     caseWeight: 10
+    costPrice: 0
+    sellPrice: 0
     minCostPrice: 22
     maxCostPrice: 24
+    processingState: 0
   - productData: {fileID: 11400000, guid: 0d5fc0003e29b124eb759bef6d3ec813, type: 2}
     caseWeight: 12
+    costPrice: 0
+    sellPrice: 0
     minCostPrice: 16
     maxCostPrice: 20
+    processingState: 0
   - productData: {fileID: 11400000, guid: ff96d965a33790148b56510e078b2ab6, type: 2}
     caseWeight: 25
+    costPrice: 0
+    sellPrice: 0
     minCostPrice: 16
     maxCostPrice: 26
+    processingState: 0
   - productData: {fileID: 11400000, guid: 47988d5f24b027c4487e6f4f07409e9b, type: 2}
     caseWeight: 25
+    costPrice: 0
+    sellPrice: 0
     minCostPrice: 16
     maxCostPrice: 26
+    processingState: 0
   - productData: {fileID: 11400000, guid: ff96d965a33790148b56510e078b2ab6, type: 2}
     caseWeight: 25
+    costPrice: 0
+    sellPrice: 0
     minCostPrice: 16
     maxCostPrice: 26
+    processingState: 0
   - productData: {fileID: 11400000, guid: 5c3c273a4f7e255448ed6c32c8f5c52a, type: 2}
     caseWeight: 22
+    costPrice: 0
+    sellPrice: 0
     minCostPrice: 10
     maxCostPrice: 32
+    processingState: 0
   - productData: {fileID: 11400000, guid: 326a19dc7b130f94d92a87c8dbf5d789, type: 2}
     caseWeight: 8
+    costPrice: 0
+    sellPrice: 0
     minCostPrice: 12
     maxCostPrice: 24
+    processingState: 0
   - productData: {fileID: 11400000, guid: b78595dc767e83e49b1a4a8c6dfa37b7, type: 2}
     caseWeight: 8
+    costPrice: 0
+    sellPrice: 0
     minCostPrice: 12
     maxCostPrice: 24
+    processingState: 0
   - productData: {fileID: 11400000, guid: ad7d7dc076f6a2d469e0c5a74dc55bb6, type: 2}
     caseWeight: 8
+    costPrice: 0
+    sellPrice: 0
     minCostPrice: 12
     maxCostPrice: 24
+    processingState: 0
   - productData: {fileID: 11400000, guid: c9bc76c11ecf9fd4faec3610ff65081d, type: 2}
     caseWeight: 25
+    costPrice: 0
+    sellPrice: 0
     minCostPrice: 16
     maxCostPrice: 24
+    processingState: 0
   - productData: {fileID: 11400000, guid: f1b62e2049757654e9d8c8fcada9d640, type: 2}
     caseWeight: 22
+    costPrice: 0
+    sellPrice: 0
     minCostPrice: 10
     maxCostPrice: 32
+    processingState: 0
   - productData: {fileID: 11400000, guid: 67e919059c61cff4aa16a8b9af819684, type: 2}
     caseWeight: 22
+    costPrice: 0
+    sellPrice: 0
     minCostPrice: 10
     maxCostPrice: 36
+    processingState: 0
   - productData: {fileID: 11400000, guid: 8fb3635a481f82d44b6b6f86d8840711, type: 2}
     caseWeight: 50
+    costPrice: 0
+    sellPrice: 0
     minCostPrice: 48
     maxCostPrice: 60
+    processingState: 0
   - productData: {fileID: 11400000, guid: 354d90b2e1f61be44a4533245acb749e, type: 2}
     caseWeight: 25
+    costPrice: 0
+    sellPrice: 0
     minCostPrice: 12
     maxCostPrice: 24
+    processingState: 0
   - productData: {fileID: 11400000, guid: 7987a3d07bb9b9549a868d447fe086eb, type: 2}
     caseWeight: 25
+    costPrice: 0
+    sellPrice: 0
     minCostPrice: 24
     maxCostPrice: 26
+    processingState: 0
   - productData: {fileID: 11400000, guid: 0a59f48b8bc65c54aa3a7e57d9593fc7, type: 2}
     caseWeight: 15
+    costPrice: 0
+    sellPrice: 0
     minCostPrice: 18
     maxCostPrice: 20
+    processingState: 0
   - productData: {fileID: 11400000, guid: b6be471bba665744f8f163cfab5983c6, type: 2}
     caseWeight: 8
+    costPrice: 0
+    sellPrice: 0
     minCostPrice: 32
     maxCostPrice: 48
+    processingState: 0
   - productData: {fileID: 11400000, guid: 7d5a12c7aaf92e240a87057f75227537, type: 2}
     caseWeight: 12
+    costPrice: 0
+    sellPrice: 0
     minCostPrice: 36
     maxCostPrice: 40
+    processingState: 0
   - productData: {fileID: 11400000, guid: 7af158573fdd361478dcd6e21047a5b8, type: 2}
     caseWeight: 15
+    costPrice: 0
+    sellPrice: 0
     minCostPrice: 12
     maxCostPrice: 16
+    processingState: 0
   - productData: {fileID: 11400000, guid: b61fda5aff8723449afd82cbb410b5dd, type: 2}
     caseWeight: 50
+    costPrice: 0
+    sellPrice: 0
     minCostPrice: 48
     maxCostPrice: 56
+    processingState: 0
   - productData: {fileID: 11400000, guid: 04544eab57b499c4aa1f1f57eb1d5e06, type: 2}
     caseWeight: 5
+    costPrice: 0
+    sellPrice: 0
     minCostPrice: 6
     maxCostPrice: 9
+    processingState: 0
   - productData: {fileID: 11400000, guid: 968d60e025127d04fb0e728fcfae4291, type: 2}
     caseWeight: 25
+    costPrice: 0
+    sellPrice: 0
     minCostPrice: 36
     maxCostPrice: 48
+    processingState: 0
   - productData: {fileID: 11400000, guid: c26c6eabf23b1b2409b9e1161f205688, type: 2}
     caseWeight: 25
+    costPrice: 0
+    sellPrice: 0
     minCostPrice: 36
     maxCostPrice: 48
+    processingState: 0
   - productData: {fileID: 11400000, guid: 3e092fbed74a9a04396ab69d07e3842a, type: 2}
     caseWeight: 25
+    costPrice: 0
+    sellPrice: 0
     minCostPrice: 12
     maxCostPrice: 16
+    processingState: 0
   - productData: {fileID: 11400000, guid: 2468813caddb0bb41a09bef4c7289861, type: 2}
     caseWeight: 25
+    costPrice: 0
+    sellPrice: 0
     minCostPrice: 12
     maxCostPrice: 22
+    processingState: 0
   - productData: {fileID: 11400000, guid: 69fbfa49040d37b4d9c256e25de66962, type: 2}
     caseWeight: 25
+    costPrice: 0
+    sellPrice: 0
     minCostPrice: 6
     maxCostPrice: 10
+    processingState: 0
   - productData: {fileID: 11400000, guid: 69fbfa49040d37b4d9c256e25de66962, type: 2}
     caseWeight: 25
+    costPrice: 0
+    sellPrice: 0
     minCostPrice: 6
     maxCostPrice: 10
+    processingState: 0
+  - productData: {fileID: 11400000, guid: 177417a58b15d71428bac2b81d926cf8, type: 2}
+    caseWeight: 15
+    costPrice: 0
+    sellPrice: 0
+    minCostPrice: 30
+    maxCostPrice: 32
+    processingState: 0

@@ -8,8 +8,12 @@ public class ProductSelectionMenu : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI productName;
     [SerializeField] private TextMeshProUGUI amountToProcess;
+    [SerializeField] private TextMeshProUGUI pricePerKG;
+    [SerializeField] private TextMeshProUGUI pricePerCase;
 
     [SerializeField] private Image productIcon;
+
+    private Product selectedProduct;
 
     private int currentAmount = 1;
 
@@ -26,17 +30,22 @@ public class ProductSelectionMenu : MonoBehaviour
     {
         productName.SetText(product.productData.productName);
         productIcon.sprite = product.productData.productIcon;
+        pricePerCase.SetText("Price Per Case: " + product.costPrice + "$");
+        pricePerKG.SetText("Price Per KG: " + product.sellPrice.ToString("#.00"));
+        selectedProduct = product;
     }
 
     public void Process()
     {
-        TaskManager.instance.ProcessProduct();
+        TaskManager.instance.ProcessProduct(selectedProduct, currentAmount);
         gameObject.SetActive(false);
     }
 
     public void ExitMenu()
     {
         gameObject.SetActive(false);
+        selectedProduct = null;
+        TaskManager.instance.currentlySelectedProduct = null;
     }
 
     public void Add()

@@ -20,82 +20,109 @@ public class TaskManager : MonoBehaviour
     }
     #endregion
 
+    public SaleManager saleManager;
+    public TaskTimer taskTimer;
+
     public Product currentlySelectedProduct;
-    //[SerializeField] private List<Task> tasks = new List<Task>();
     [HideInInspector] public bool currentlyProcessing;
 
-    private enum ProcessState { CUPPING, WRAPPING, PRICING, IDLE };
-    private ProcessState currentProcessState;
+    [HideInInspector] public float processTimeLeft;
+    [HideInInspector] public float processingTime;
 
     private void Start()
     {
         currentlyProcessing = false;
-        currentProcessState = ProcessState.IDLE;
     }
 
-    public void ProcessProduct()
+    public void ProcessProduct(Product selectedProduct, int amountOfProcesses)
     {
-        if(currentlyProcessing)
+        currentlySelectedProduct = selectedProduct;
+
+        if (currentlyProcessing)
         {
             Debug.Log("Cannot process 2 products at the same time!");
             return;
         }
 
-        if(currentlySelectedProduct != null && !currentlyProcessing)
+        if (selectedProduct != null && !currentlyProcessing)
         {
-            currentProcessState = ProcessState.CUPPING;
             currentlyProcessing = true;
-            StartCoroutine(Cup());
-            Debug.Log("Currently being processed: " + currentlySelectedProduct.productData.productName);
-        } else
+            selectedProduct.processingState = Product.ProcessingState.CUPPING;
+            StartCoroutine(ProcessingTask(selectedProduct, amountOfProcesses));
+            Debug.Log("Currently being processed: " + selectedProduct.productData.productName);
+        }
+        else
         {
             Debug.Log("No product selected.");
         }
     }
 
-    IEnumerator Cup()
+    IEnumerator ProcessingTask(Product product, int amountOfProcesses)
     {
-        float processingTime = currentlySelectedProduct.productData.cuppingTime;
+        switch (product.processingState)
+        {
+            case Product.ProcessingState.CUPPING:
+                processTimeLeft = product.productData.cuppingTime * amountOfProcesses;
+                break;
+            case Product.ProcessingState.WRAPPING:
+                processTimeLeft = product.productData.wrappingTime * amountOfProcesses;
+                break;
+            case Product.ProcessingState.PRICING:
+                processTimeLeft = product.productData.pricingTime * amountOfProcesses;
+                break;
 
-        while(processingTime > 0f)
+            default:
+                processTimeLeft = 3f;
+                break;
+        }
+
+        processingTime = processTimeLeft;
+
+        taskTimer.gameObject.SetActive(true);
+        taskTimer.ChangePosition(product);
+
+        while (processTimeLeft > 0f)
         {
             yield return new WaitForSeconds(1f);
-            processingTime--;
+            processTimeLeft--;
+            taskTimer.timerSprite.fillAmount = processTimeLeft / processingTime;
+            taskTimer.timerText.SetText(processTimeLeft.ToString());
         }
-        Debug.Log("Finished Cupping");
-        StartCoroutine(Wrap());
-        currentProcessState = ProcessState.WRAPPING;
-        StopCoroutine(Cup());
-    }
 
-    IEnumerator Wrap()
-    {
-        float processingTime = currentlySelectedProduct.productData.wrappingTime;
+        
 
-        while (processingTime > 0f)
+        if (product.processingState == Product.ProcessingState.PRICING)
         {
-            yield return new WaitForSeconds(1f);
-            processingTime--;
+            StopCoroutine(ProcessingTask(product, amountOfProcesses));
+            currentlyProcessing = false;
+            taskTimer.gameObject.SetActive(false);
+            Debug.Log("Finished processing product.");
+            CalculatePrice(product);
         }
-        Debug.Log("Finished Wrapping");
-        StartCoroutine(Price());
-        currentProcessState = ProcessState.PRICING;
-        StopCoroutine(Wrap());
-    }
-
-    IEnumerator Price()
-    {
-        float processingTime = currentlySelectedProduct.productData.pricingTime;
-
-        while (processingTime > 0f)
+        else
         {
-            yield return new WaitForSeconds(1f);
-            processingTime--;
+            product.NextState();
+            taskTimer.ChangePosition(product);
+            StartCoroutine(ProcessingTask(product, amountOfProcesses));
         }
-        Debug.Log("Finished Pricing");
-        currentlyProcessing = false;
-        currentProcessState = ProcessState.IDLE;
-        StopCoroutine(Price());
+
+        yield return null;
     }
 
+    private void CalculatePrice(Product product)
+    {
+        float amountToPrice = Random.Range(7, 10);
+        for (int i = 0; i < amountToPrice - 1; i++)
+        {
+            float packWeight = ChooseRandomPackWeight();
+            float packPrice = packWeight * product.sellPrice;
+            saleManager.AddSale(packPrice);
+            Debug.Log("Pack Price: " + packPrice);
+        }
+    }
+
+    private float ChooseRandomPackWeight()
+    {
+        return Random.Range(1.500f, 1.800f);
+    }
 }

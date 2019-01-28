@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d32d21b32f6004b43a4380e6cb920ac1, type: 3}
   m_Name: Lemon
   m_EditorClassIdentifier: 
-  productIcon: {fileID: 21300000, guid: b977709fc2f6470479773ef751a2fa83, type: 3}
+  productIcon: {fileID: 21300000, guid: 22dae9afbb16d2748ab6923170b0cca5, type: 3}
   cuppingTime: 15
   wrappingTime: 8
   pricingTime: 8

@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class ProductMenuButton : MonoBehaviour
+public class ProductMenuButton : MonoBehaviour, IPointerEnterHandler
 {
     private TaskManager taskManager;
+    private Tooltip tooltip;
     private Product productInstance;
     private Button button;
 
@@ -18,6 +20,7 @@ public class ProductMenuButton : MonoBehaviour
     private void Start()
     {
         taskManager = TaskManager.instance;
+        tooltip = FindObjectOfType<Tooltip>();
     }
 
     public void SetProduct(Product product)
@@ -27,7 +30,7 @@ public class ProductMenuButton : MonoBehaviour
 
     public void SelectProduct()
     {
-        Debug.Log("Product " + productInstance.productData.productName + " has been selected.");
+        //Debug.Log("Product " + productInstance.productData.productName + " has been selected.");
 
         if (taskManager.currentlySelectedProduct != productInstance)
         {
@@ -42,5 +45,10 @@ public class ProductMenuButton : MonoBehaviour
     {
         GameManager.instance.productProcessMenu.SetActive(true);
         GameManager.instance.productProcessMenu.GetComponent<ProductSelectionMenu>().UpdateProductProcessMenu(product);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        tooltip.UpdateToolTip(productInstance);
     }
 }
